@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aula Claude · Construcción Tecnológica y Casas 2.000</title>
+<meta name="description" content="Material de prácticas del curso de automatización de tareas con Claude aplicado a la gestión de obras. DAPEN Centro de Estudios.">
+<link rel="icon" type="image/png" href="img/logo_dapen.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f6f8f9}
+a{color:#117e8e}a:hover{color:#1c5572}
+.wrap{max-width:1160px;margin:0 auto;padding:0 32px;box-sizing:border-box}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:56px;align-items:center}
+.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr))}
+.stat{padding:20px 22px;border-left:1px solid #e2efeb}
+.stat:first-child{border-left:none}
+.dapen{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}
+.repaso{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.fila-ficha{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;box-sizing:border-box;text-decoration:none;font-weight:600}
+.btn-claro:hover{background:#e2efeb !important}
+.btn-borde:hover{background:rgba(255,255,255,0.08) !important}
+.btn-pdf:hover{background:#1c5572 !important}
+.enlace-zip:hover{color:#117e8e !important}
+.fila-archivo:hover{background:#f0fdfa}
+details>summary{list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details[open] .flecha{transform:rotate(90deg)}
+.footer-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1.4fr);gap:32px}
+@media (max-width:980px){
+.hero-grid,.repaso,.footer-grid{grid-template-columns:minmax(0,1fr)}
+.stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+.stat:nth-child(4){border-left:none}
+.stat:nth-child(n+4){border-top:1px solid #e2efeb}
+.dapen{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:600px){
+.stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+.stat{border-left:none !important;border-top:1px solid #e2efeb}
+.stat:nth-child(-n+2){border-top:none}
+.dapen{grid-template-columns:repeat(2,minmax(0,1fr))}
+.wrap{padding:0 18px}
+}
+</style>
+</head>
+<body>
+<div style="font-family: Poppins, system-ui, sans-serif; color: #212121; background: #f6f8f9; width: 100%">
+
+<header style="background: #ffffff; border-bottom: 1px solid #e2efeb">
+<div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-top: 16px; padding-bottom: 16px">
+<img src="img/logo_dapen.png" alt="DAPEN Centro Estudios" style="height: 64px; width: auto; display: block">
+<div style="display: flex; align-items: center; gap: 14px">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #333333">Formación para</span>
+<div style="width: 1px; height: 34px; background: #e2efeb"></div>
+<div style="display: flex; flex-direction: column; line-height: 1.3">
+<strong style="font-size: 15px; color: #1c5572">Construcción Tecnológica y Casas 2.000 S.L.</strong>
+<span style="font-size: 12px; color: #333333">Valencia</span>
+</div>
+</div>
+</div>
+</header>
+
+<section style="background: #1c5572; padding: 64px 0 112px">
+<div class="wrap hero-grid">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<span style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #ccfbf1; border: 1px solid rgba(204,251,241,0.35); border-radius: 30px; padding: 6px 14px">Aula del curso · Material de prácticas</span>
+<h1 style="margin: 0; font-size: 44px; line-height: 1.15; font-weight: 700; color: #ffffff; letter-spacing: -0.5px">Curso de automatización de tareas con Claude aplicado a la <span style="color: #ccfbf1">gestión de obras</span></h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; font-weight: 300; color: #e2efeb; max-width: 620px">Descarga aquí las fichas de cada sesión y los archivos de trabajo de los ejercicios. Todo el material está preparado para dirección, administración, comercial y aparejador.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px">
+<a class="btn btn-claro" href="recursos/Material_completo_curso_CTC2000.zip" download="Material_completo_curso_CTC2000.zip" style="background: #ffffff; color: #1c5572; padding: 10px 24px; border-radius: 8px; font-size: 15px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+Descargar todo el material · 2,5 MB</a>
+<a class="btn btn-borde" href="#fichas" style="color: #ffffff; border: 1px solid rgba(255,255,255,0.5); padding: 10px 24px; border-radius: 8px; font-size: 15px">Ver las fichas</a>
+</div>
+</div>
+
+<aside style="background: #ffffff; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 18px 40px rgba(0,0,0,0.18)">
+<div style="display: flex; align-items: center; gap: 12px">
+<div aria-hidden="true" style="width: 42px; height: 42px; border-radius: 10px; background: #ccfbf1; color: #117e8e; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"></path><path d="M8 7h6"></path><path d="M8 11h6"></path></svg>
+</div>
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #117e8e">Recurso del curso</span>
+</div>
+<h2 style="margin: 0; font-size: 24px; line-height: 1.25; font-weight: 700; color: #333333">Biblioteca de Skills DAPEN</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; font-weight: 300; color: #212121">Skills listas para instalar en Claude y usar en tu trabajo diario.</p>
+<a class="btn btn-pdf" href="https://cursoscondaniel2025-coder.github.io/dapen-skills/" target="_blank" rel="noopener" style="align-self: flex-start; background: #117e8e; color: #ffffff; padding: 10px 22px; border-radius: 8px; font-size: 15px; margin-top: 4px">Abrir biblioteca
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+</aside>
+</div>
+</section>
+
+<div class="wrap" style="margin-top: -60px">
+<div class="stats" style="background: #ffffff; border-radius: 14px; box-shadow: 0 10px 30px rgba(28,85,114,0.10); border: 1px solid #e2efeb">
+<div class="stat"><div style="font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #333333">Duración</div><div style="font-size: 20px; font-weight: 700; color: #1c5572; margin-top: 4px">12 horas</div></div>
+<div class="stat"><div style="font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #333333">Modalidad</div><div style="font-size: 20px; font-weight: 700; color: #1c5572; margin-top: 4px">Presencial</div></div>
+<div class="stat"><div style="font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #333333">Fichas</div><div style="font-size: 20px; font-weight: 700; color: #1c5572; margin-top: 4px">5</div></div>
+<div class="stat"><div style="font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #333333">Archivos</div><div style="font-size: 20px; font-weight: 700; color: #1c5572; margin-top: 4px">91</div></div>
+<div class="stat"><div style="font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #333333">Formador</div><div style="font-size: 16px; font-weight: 700; color: #1c5572; margin-top: 4px; line-height: 1.3">Daniel Peña Becerra</div></div>
+<div class="stat"><div style="font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #333333">Actualizado</div><div style="font-size: 20px; font-weight: 700; color: #1c5572; margin-top: 4px">15/11/2026</div></div>
+</div>
+</div>
+
+<section id="fichas" style="padding: 64px 0 24px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #117e8e">Material del curso</span>
+<h2 style="margin: 0; font-size: 32px; font-weight: 700; color: #333333; letter-spacing: -0.3px">Fichas de prácticas</h2>
+<p style="margin: 0; font-size: 16px; font-weight: 300; color: #212121">Cada ficha incluye los ejercicios paso a paso y sus archivos de trabajo.</p>
+</div>
+<span style="font-size: 13px; font-weight: 600; color: #1c5572; background: #ccfbf1; border-radius: 30px; padding: 6px 14px">5 fichas · 91 archivos</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<article style="border: 1px solid #e2efeb; border-radius: 14px; background: #ffffff; padding: 24px 26px; box-shadow: 0 2px 10px rgba(28,85,114,0.05); display: flex; flex-direction: column; gap: 16px">
+<div class="fila-ficha">
+<div style="display: flex; align-items: center; gap: 20px; min-width: 0; flex: 1 1 360px">
+<div aria-hidden="true" style="flex: none; width: 52px; height: 52px; border-radius: 12px; background: #1c5572; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700">01</div>
+<div style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #117e8e">FICHA 01</span>
+<h3 style="margin: 0; font-size: 20px; line-height: 1.3; font-weight: 700; color: #333333">Configuración de Claude</h3>
+<span style="font-size: 14px; line-height: 1.5; font-weight: 300; color: #333333">Tu perfil, tu privacidad y tu memoria.</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+<a href="fichas/Ficha_1_Configuracion_de_Claude_CTC2000.pdf" download="Ficha_1_Configuracion_de_Claude_CTC2000.pdf" class="btn btn-pdf" style="background: #117e8e; color: #ffffff; padding: 8px 20px; border-radius: 8px; font-size: 14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+Ficha en PDF · 126 KB</a>
+
+</div>
+</div>
+
+</article>
+<article style="border: 1px solid #e2efeb; border-radius: 14px; background: #ffffff; padding: 24px 26px; box-shadow: 0 2px 10px rgba(28,85,114,0.05); display: flex; flex-direction: column; gap: 16px">
+<div class="fila-ficha">
+<div style="display: flex; align-items: center; gap: 20px; min-width: 0; flex: 1 1 360px">
+<div aria-hidden="true" style="flex: none; width: 52px; height: 52px; border-radius: 12px; background: #1c5572; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700">02</div>
+<div style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #117e8e">FICHA 02</span>
+<h3 style="margin: 0; font-size: 20px; line-height: 1.3; font-weight: 700; color: #333333">DAPEN+R aplicado a la obra</h3>
+<span style="font-size: 14px; line-height: 1.5; font-weight: 300; color: #333333">Método Rol, DAPEN+R, Entrevista y Prompt parametrizado.</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+<a href="fichas/Ficha_2_DAPENR_aplicado_a_la_obra_CTC2000.pdf" download="Ficha_2_DAPENR_aplicado_a_la_obra_CTC2000.pdf" class="btn btn-pdf" style="background: #117e8e; color: #ffffff; padding: 8px 20px; border-radius: 8px; font-size: 14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+Ficha en PDF · 125 KB</a>
+
+<a class="btn enlace-zip" href="recursos/Recursos_Ficha_2_CTC2000.zip" download="Recursos_Ficha_2_CTC2000.zip" style="color: #212121; font-size: 14px; padding: 8px 4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+Todos los recursos (ZIP) · 80 KB</a>
+
+</div>
+</div>
+
+<details style="border-top: 1px solid #e2efeb; padding-top: 12px">
+<summary style="cursor: pointer; font-size: 14px; font-weight: 600; color: #1c5572; min-height: 36px; display: flex; align-items: center; gap: 8px"><svg class="flecha" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transition: transform 0.15s"><path d="M9 6l6 6-6 6"></path></svg>Archivos para la práctica (4)</summary>
+<ul style="list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column">
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-2/1%20-%20Estado_obras_octubre_2026%20%28simulado%29.xlsx" download="1 - Estado_obras_octubre_2026 (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">1 - Estado_obras_octubre_2026 (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">12 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-2/2%20-%20Facturas_obra_B%20%28simulado%29.xlsx" download="2 - Facturas_obra_B (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">2 - Facturas_obra_B (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">12 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-2/3%20-%20Carta_propuesta_modelo%20%28simulada%29.docx" download="3 - Carta_propuesta_modelo (simulada).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">3 - Carta_propuesta_modelo (simulada).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">29 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-2/4%20-%20Notas_dictado_visita_obra_B%20%28simulado%29.docx" download="4 - Notas_dictado_visita_obra_B (simulado).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">4 - Notas_dictado_visita_obra_B (simulado).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+</ul>
+</details>
+
+</article>
+<article style="border: 1px solid #e2efeb; border-radius: 14px; background: #ffffff; padding: 24px 26px; box-shadow: 0 2px 10px rgba(28,85,114,0.05); display: flex; flex-direction: column; gap: 16px">
+<div class="fila-ficha">
+<div style="display: flex; align-items: center; gap: 20px; min-width: 0; flex: 1 1 360px">
+<div aria-hidden="true" style="flex: none; width: 52px; height: 52px; border-radius: 12px; background: #1c5572; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700">03</div>
+<div style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #117e8e">FICHA 03</span>
+<h3 style="margin: 0; font-size: 20px; line-height: 1.3; font-weight: 700; color: #333333">Cowork y carpeta de obras</h3>
+<span style="font-size: 14px; line-height: 1.5; font-weight: 300; color: #333333">Claude busca, ordena, crea y guarda en tu carpeta.</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+<a href="fichas/Ficha_3_Cowork_y_carpeta_de_obras_CTC2000.pdf" download="Ficha_3_Cowork_y_carpeta_de_obras_CTC2000.pdf" class="btn btn-pdf" style="background: #117e8e; color: #ffffff; padding: 8px 20px; border-radius: 8px; font-size: 14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+Ficha en PDF · 83 KB</a>
+
+<a class="btn enlace-zip" href="recursos/Recursos_Ficha_3_CARPETA_PRACTICA_COWORK.zip" download="Recursos_Ficha_3_CARPETA_PRACTICA_COWORK.zip" style="color: #212121; font-size: 14px; padding: 8px 4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+Todos los recursos (ZIP) · 956 KB</a>
+
+</div>
+</div>
+
+<details style="border-top: 1px solid #e2efeb; padding-top: 12px">
+<summary style="cursor: pointer; font-size: 14px; font-weight: 600; color: #1c5572; min-height: 36px; display: flex; align-items: center; gap: 8px"><svg class="flecha" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transition: transform 0.15s"><path d="M9 6l6 6-6 6"></path></svg>Archivos para la práctica (45)</summary>
+<ul style="list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column">
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/CE%201203.pdf" download="CE 1203.pdf" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">PDF</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">CE 1203.pdf</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">2 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/Documento1.pdf" download="Documento1.pdf" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">PDF</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">Documento1.pdf</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">2 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/F118.pdf" download="F118.pdf" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">PDF</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">F118.pdf</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">2 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/Presupuesto%20obra%20B%20v1%20%28antiguo%29.xlsx" download="Presupuesto obra B v1 (antiguo).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">Presupuesto obra B v1 (antiguo).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/Presupuesto%20obra%20B%20v2%20DEFINITIVO.xlsx" download="Presupuesto obra B v2 DEFINITIVO.xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">Presupuesto obra B v2 DEFINITIVO.xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/acta%20comunidad%20propietarios%2022-oct.docx" download="acta comunidad propietarios 22-oct.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">acta comunidad propietarios 22-oct.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/acta%20reunion%20direccion%2002-11.docx" download="acta reunion direccion 02-11.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">acta reunion direccion 02-11.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/acta%20reunion%20direccion%2005-10.docx" download="acta reunion direccion 05-10.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">acta reunion direccion 05-10.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/acta%20visita%2015-10%20%28B%29.docx" download="acta visita 15-10 (B).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">acta visita 15-10 (B).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/acta%20visita%2029-10%20%28B%29.docx" download="acta visita 29-10 (B).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">acta visita 29-10 (B).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/cambio%20acero%20A.docx" download="cambio acero A.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">cambio acero A.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/cambio%20griferia%20E.docx" download="cambio griferia E.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">cambio griferia E.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/carta%20propuesta%20118.docx" download="carta propuesta 118.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">carta propuesta 118.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">38 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/condiciones%20generales%202024.docx" download="condiciones generales 2024.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">condiciones generales 2024.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/condiciones%20pago%20industriales.docx" download="condiciones pago industriales.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">condiciones pago industriales.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/contrato%20obra%20B%20firmado.docx" download="contrato obra B firmado.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">contrato obra B firmado.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/correos%20clientes%20anteriores.docx" download="correos clientes anteriores.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">correos clientes anteriores.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/directorio%20interno.xlsx" download="directorio interno.xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">directorio interno.xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">5 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/escaneo%20ceramica.pdf" download="escaneo ceramica.pdf" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">PDF</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">escaneo ceramica.pdf</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">2 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/estado%20obras%20oct.xlsx" download="estado obras oct.xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">estado obras oct.xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">12 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/export_pagos_octubre.csv" download="export_pagos_octubre.csv" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">CSV</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">export_pagos_octubre.csv</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">1 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/factura%20%282%29.pdf" download="factura (2).pdf" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">PDF</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">factura (2).pdf</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">2 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/factura_vidrios.pdf" download="factura_vidrios.pdf" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">PDF</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">factura_vidrios.pdf</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">2 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/glosario%20construccion.docx" download="glosario construccion.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">glosario construccion.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/hormigonado%20A.xlsx" download="hormigonado A.xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">hormigonado A.xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">5 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/img_0311.pdf" download="img_0311.pdf" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">PDF</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">img_0311.pdf</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">2 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/incidencia%20tuberia%20D.docx" download="incidencia tuberia D.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">incidencia tuberia D.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/informe%20sept%20B.docx" download="informe sept B.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">informe sept B.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/mediciones%20obra%20B%20presupuesto.xlsx" download="mediciones obra B presupuesto.xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">mediciones obra B presupuesto.xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">5 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/normas%20de%20trabajo.docx" download="normas de trabajo.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">normas de trabajo.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/notas%20dictado%2012nov.docx" download="notas dictado 12nov.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">notas dictado 12nov.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/notas%20reunion.md" download="notas reunion.md" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">MD</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">notas reunion.md</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">1 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/planning%20B.xlsx" download="planning B.xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">planning B.xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/preguntas%20frecuentes%20clientes.docx" download="preguntas frecuentes clientes.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">preguntas frecuentes clientes.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/presentacion%20empresa.pptx" download="presentacion empresa.pptx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">PPTX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">presentacion empresa.pptx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">29 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/presupuesto%20fachada%20C.xlsx" download="presupuesto fachada C.xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">presupuesto fachada C.xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">5 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/reclamacion%20cobro%20D%20%28borrador%29.docx" download="reclamacion cobro D (borrador).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">reclamacion cobro D (borrador).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/recordatorios.txt" download="recordatorios.txt" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">TXT</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">recordatorios.txt</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">1 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/refuerzo%20solera%20F.docx" download="refuerzo solera F.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">refuerzo solera F.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/scan_0412.jpg" download="scan_0412.jpg" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">JPG</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">scan_0412.jpg</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">111 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/scan_0413.jpg" download="scan_0413.jpg" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">JPG</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">scan_0413.jpg</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">114 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/scan_0457.pdf" download="scan_0457.pdf" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">PDF</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">scan_0457.pdf</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">2 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/seguimiento%20propuestas%20nov.xlsx" download="seguimiento propuestas nov.xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">seguimiento propuestas nov.xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/seguimiento%20propuestas%20oct.xlsx" download="seguimiento propuestas oct.xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">seguimiento propuestas oct.xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-3/solicitud%20licencia%20F.pdf" download="solicitud licencia F.pdf" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">PDF</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">solicitud licencia F.pdf</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">2 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+</ul>
+</details>
+
+</article>
+<article style="border: 1px solid #e2efeb; border-radius: 14px; background: #ffffff; padding: 24px 26px; box-shadow: 0 2px 10px rgba(28,85,114,0.05); display: flex; flex-direction: column; gap: 16px">
+<div class="fila-ficha">
+<div style="display: flex; align-items: center; gap: 20px; min-width: 0; flex: 1 1 360px">
+<div aria-hidden="true" style="flex: none; width: 52px; height: 52px; border-radius: 12px; background: #1c5572; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700">04</div>
+<div style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #117e8e">FICHA 04</span>
+<h3 style="margin: 0; font-size: 20px; line-height: 1.3; font-weight: 700; color: #333333">Proyecto por obra</h3>
+<span style="font-size: 14px; line-height: 1.5; font-weight: 300; color: #333333">Espacios de trabajo con sus propias normas, documentos y memoria.</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+<a href="fichas/Ficha_4_Proyecto_por_obra_CTC2000.pdf" download="Ficha_4_Proyecto_por_obra_CTC2000.pdf" class="btn btn-pdf" style="background: #117e8e; color: #ffffff; padding: 8px 20px; border-radius: 8px; font-size: 14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+Ficha en PDF · 168 KB</a>
+
+<a class="btn enlace-zip" href="recursos/Recursos_Ficha_4_Proyectos_CTC2000.zip" download="Recursos_Ficha_4_Proyectos_CTC2000.zip" style="color: #212121; font-size: 14px; padding: 8px 4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+Todos los recursos (ZIP) · 1011 KB</a>
+
+</div>
+</div>
+
+<details style="border-top: 1px solid #e2efeb; padding-top: 12px">
+<summary style="cursor: pointer; font-size: 14px; font-weight: 600; color: #1c5572; min-height: 36px; display: flex; align-items: center; gap: 8px"><svg class="flecha" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transition: transform 0.15s"><path d="M9 6l6 6-6 6"></path></svg>Archivos para la práctica (36)</summary>
+<ul style="list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column">
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/1%20-%20Instrucciones_proyecto_general.docx" download="1 - Instrucciones_proyecto_general.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">1 - Instrucciones_proyecto_general.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/1%20-%20Proyecto_General_CTC2000/Directorio_interno%20%28simulado%29.xlsx" download="Directorio_interno (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">1 - Proyecto_General_CTC2000</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Directorio_interno (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">5 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/1%20-%20Proyecto_General_CTC2000/Glosario_construccion.docx" download="Glosario_construccion.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">1 - Proyecto_General_CTC2000</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Glosario_construccion.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/1%20-%20Proyecto_General_CTC2000/Guia_uso_responsable_IA_CTC2000.docx" download="Guia_uso_responsable_IA_CTC2000.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">1 - Proyecto_General_CTC2000</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Guia_uso_responsable_IA_CTC2000.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/1%20-%20Proyecto_General_CTC2000/Normas_de_trabajo_en_obra_y_oficina.docx" download="Normas_de_trabajo_en_obra_y_oficina.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">1 - Proyecto_General_CTC2000</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Normas_de_trabajo_en_obra_y_oficina.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/1%20-%20Proyecto_General_CTC2000/Plantilla_acta_visita_obra.docx" download="Plantilla_acta_visita_obra.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">1 - Proyecto_General_CTC2000</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Plantilla_acta_visita_obra.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/1%20-%20Proyecto_General_CTC2000/Plantilla_correo_a_industrial.docx" download="Plantilla_correo_a_industrial.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">1 - Proyecto_General_CTC2000</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Plantilla_correo_a_industrial.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/1%20-%20Proyecto_General_CTC2000/Plantilla_informe_situacion_obra.docx" download="Plantilla_informe_situacion_obra.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">1 - Proyecto_General_CTC2000</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Plantilla_informe_situacion_obra.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/1%20-%20Proyecto_General_CTC2000/Preguntas_frecuentes_internas.docx" download="Preguntas_frecuentes_internas.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">1 - Proyecto_General_CTC2000</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Preguntas_frecuentes_internas.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/2%20-%20Instrucciones_proyecto_Obra_B_Direccion.docx" download="2 - Instrucciones_proyecto_Obra_B_Direccion.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">2 - Instrucciones_proyecto_Obra_B_Direccion.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/2%20-%20Proyecto_Obra_B_Direccion/Acta_reunion_direccion_octubre%20%28simulada%29.docx" download="Acta_reunion_direccion_octubre (simulada).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">2 - Proyecto_Obra_B_Direccion</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Acta_reunion_direccion_octubre (simulada).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/2%20-%20Proyecto_Obra_B_Direccion/Contrato_obra_B%20%28simulado%29.docx" download="Contrato_obra_B (simulado).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">2 - Proyecto_Obra_B_Direccion</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Contrato_obra_B (simulado).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/2%20-%20Proyecto_Obra_B_Direccion/Estado_obras_octubre_2026%20%28simulado%29.xlsx" download="Estado_obras_octubre_2026 (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">2 - Proyecto_Obra_B_Direccion</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Estado_obras_octubre_2026 (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">12 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/2%20-%20Proyecto_Obra_B_Direccion/Informe_situacion_obra_B_septiembre%20%28simulado%29.docx" download="Informe_situacion_obra_B_septiembre (simulado).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">2 - Proyecto_Obra_B_Direccion</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Informe_situacion_obra_B_septiembre (simulado).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/2%20-%20Proyecto_Obra_B_Direccion/Plantilla_informe_situacion_obra.docx" download="Plantilla_informe_situacion_obra.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">2 - Proyecto_Obra_B_Direccion</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Plantilla_informe_situacion_obra.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/2%20-%20Proyecto_Obra_B_Direccion/Presupuesto_obra_B_por_partidas%20%28simulado%29.xlsx" download="Presupuesto_obra_B_por_partidas (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">2 - Proyecto_Obra_B_Direccion</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Presupuesto_obra_B_por_partidas (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/3%20-%20Instrucciones_proyecto_Obra_B_Administracion.docx" download="3 - Instrucciones_proyecto_Obra_B_Administracion.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">3 - Instrucciones_proyecto_Obra_B_Administracion.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/3%20-%20Proyecto_Obra_B_Administracion/Condiciones_de_pago_a_industriales%20%28simuladas%29.docx" download="Condiciones_de_pago_a_industriales (simuladas).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">3 - Proyecto_Obra_B_Administracion</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Condiciones_de_pago_a_industriales (simuladas).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/3%20-%20Proyecto_Obra_B_Administracion/Criterios_de_revision_de_facturas%20%28simulados%29.docx" download="Criterios_de_revision_de_facturas (simulados).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">3 - Proyecto_Obra_B_Administracion</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Criterios_de_revision_de_facturas (simulados).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/3%20-%20Proyecto_Obra_B_Administracion/Facturas_obra_B%20%28simulado%29.xlsx" download="Facturas_obra_B (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">3 - Proyecto_Obra_B_Administracion</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Facturas_obra_B (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">8 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/3%20-%20Proyecto_Obra_B_Administracion/Pedidos_y_albaranes_obra_B%20%28simulado%29.xlsx" download="Pedidos_y_albaranes_obra_B (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">3 - Proyecto_Obra_B_Administracion</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Pedidos_y_albaranes_obra_B (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/3%20-%20Proyecto_Obra_B_Administracion/Plantilla_correo_a_industrial.docx" download="Plantilla_correo_a_industrial.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">3 - Proyecto_Obra_B_Administracion</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Plantilla_correo_a_industrial.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/4%20-%20Instrucciones_proyecto_Propuesta_P-2026-118_Comercial.docx" download="4 - Instrucciones_proyecto_Propuesta_P-2026-118_Comercial.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">4 - Instrucciones_proyecto_Propuesta_P-2026-118_Comercial.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/4%20-%20Proyecto_Propuesta_P-2026-118_Comercial/Carta_propuesta_P-2026-118%20%28simulada%29.docx" download="Carta_propuesta_P-2026-118 (simulada).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">4 - Proyecto_Propuesta_P-2026-118_Comercial</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Carta_propuesta_P-2026-118 (simulada).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">38 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/4%20-%20Proyecto_Propuesta_P-2026-118_Comercial/Correos_anteriores_con_clientes%20%28simulados%29.docx" download="Correos_anteriores_con_clientes (simulados).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">4 - Proyecto_Propuesta_P-2026-118_Comercial</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Correos_anteriores_con_clientes (simulados).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/4%20-%20Proyecto_Propuesta_P-2026-118_Comercial/Muestras_y_materiales%20%28simulado%29.xlsx" download="Muestras_y_materiales (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">4 - Proyecto_Propuesta_P-2026-118_Comercial</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Muestras_y_materiales (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/4%20-%20Proyecto_Propuesta_P-2026-118_Comercial/Preguntas_frecuentes_clientes%20%28simuladas%29.docx" download="Preguntas_frecuentes_clientes (simuladas).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">4 - Proyecto_Propuesta_P-2026-118_Comercial</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Preguntas_frecuentes_clientes (simuladas).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/4%20-%20Proyecto_Propuesta_P-2026-118_Comercial/Presupuesto_detallado_P-2026-118%20%28simulado%29.xlsx" download="Presupuesto_detallado_P-2026-118 (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">4 - Proyecto_Propuesta_P-2026-118_Comercial</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Presupuesto_detallado_P-2026-118 (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/5%20-%20Instrucciones_proyecto_Obra_B_Aparejador.docx" download="5 - Instrucciones_proyecto_Obra_B_Aparejador.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">5 - Instrucciones_proyecto_Obra_B_Aparejador.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/5%20-%20Proyecto_Obra_B_Aparejador/Actas_anteriores_obra_B%20%28simuladas%29.docx" download="Actas_anteriores_obra_B (simuladas).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">5 - Proyecto_Obra_B_Aparejador</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Actas_anteriores_obra_B (simuladas).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/5%20-%20Proyecto_Obra_B_Aparejador/Fichas_tecnicas_materiales_obra_B%20%28simuladas%29.docx" download="Fichas_tecnicas_materiales_obra_B (simuladas).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">5 - Proyecto_Obra_B_Aparejador</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Fichas_tecnicas_materiales_obra_B (simuladas).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/5%20-%20Proyecto_Obra_B_Aparejador/Lista_de_comprobacion_visita_obra%20%28simulada%29.docx" download="Lista_de_comprobacion_visita_obra (simulada).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">5 - Proyecto_Obra_B_Aparejador</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Lista_de_comprobacion_visita_obra (simulada).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/5%20-%20Proyecto_Obra_B_Aparejador/Notas_dictado_visita_obra_B%20%28simulado%29.docx" download="Notas_dictado_visita_obra_B (simulado).docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">5 - Proyecto_Obra_B_Aparejador</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Notas_dictado_visita_obra_B (simulado).docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/5%20-%20Proyecto_Obra_B_Aparejador/Planning_obra_B%20%28simulado%29.xlsx" download="Planning_obra_B (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">5 - Proyecto_Obra_B_Aparejador</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Planning_obra_B (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/5%20-%20Proyecto_Obra_B_Aparejador/Plantilla_acta_visita_obra.docx" download="Plantilla_acta_visita_obra.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+<span style="font-size: 12px; color: #333333">5 - Proyecto_Obra_B_Aparejador</span>
+<span style="font-size: 14px; overflow-wrap: anywhere">Plantilla_acta_visita_obra.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">36 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-4/6%20-%20Plantilla_instrucciones_proyecto.docx" download="6 - Plantilla_instrucciones_proyecto.docx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">DOCX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">6 - Plantilla_instrucciones_proyecto.docx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">37 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+</ul>
+</details>
+
+</article>
+<article style="border: 1px solid #e2efeb; border-radius: 14px; background: #ffffff; padding: 24px 26px; box-shadow: 0 2px 10px rgba(28,85,114,0.05); display: flex; flex-direction: column; gap: 16px">
+<div class="fila-ficha">
+<div style="display: flex; align-items: center; gap: 20px; min-width: 0; flex: 1 1 360px">
+<div aria-hidden="true" style="flex: none; width: 52px; height: 52px; border-radius: 12px; background: #1c5572; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700">05</div>
+<div style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #117e8e">FICHA 05</span>
+<h3 style="margin: 0; font-size: 20px; line-height: 1.3; font-weight: 700; color: #333333">Facturas y control de costes</h3>
+<span style="font-size: 14px; line-height: 1.5; font-weight: 300; color: #333333">La hoja de cálculo de Claude: tablas, seguimientos y gráficos.</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+<a href="fichas/Ficha_5_Facturas_y_control_de_costes_CTC2000.pdf" download="Ficha_5_Facturas_y_control_de_costes_CTC2000.pdf" class="btn btn-pdf" style="background: #117e8e; color: #ffffff; padding: 8px 20px; border-radius: 8px; font-size: 14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+Ficha en PDF · 77 KB</a>
+
+<a class="btn enlace-zip" href="recursos/Recursos_Ficha_5_CTC2000.zip" download="Recursos_Ficha_5_CTC2000.zip" style="color: #212121; font-size: 14px; padding: 8px 4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
+Todos los recursos (ZIP) · 35 KB</a>
+
+</div>
+</div>
+
+<details style="border-top: 1px solid #e2efeb; padding-top: 12px">
+<summary style="cursor: pointer; font-size: 14px; font-weight: 600; color: #1c5572; min-height: 36px; display: flex; align-items: center; gap: 8px"><svg class="flecha" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transition: transform 0.15s"><path d="M9 6l6 6-6 6"></path></svg>Archivos para la práctica (6)</summary>
+<ul style="list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column">
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-5/1%20-%20Facturas_obra_B_noviembre_2026%20%28simulado%29.xlsx" download="1 - Facturas_obra_B_noviembre_2026 (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">1 - Facturas_obra_B_noviembre_2026 (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">7 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-5/2%20-%20Estado_obras_octubre_2026%20%28simulado%29.xlsx" download="2 - Estado_obras_octubre_2026 (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">2 - Estado_obras_octubre_2026 (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-5/3%20-%20Pedidos_y_albaranes_obra_B%20%28simulado%29.xlsx" download="3 - Pedidos_y_albaranes_obra_B (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">3 - Pedidos_y_albaranes_obra_B (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-5/4%20-%20Presupuesto_obra_B_por_capitulos%20%28simulado%29.xlsx" download="4 - Presupuesto_obra_B_por_capitulos (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">4 - Presupuesto_obra_B_por_capitulos (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">5 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-5/5%20-%20Seguimiento_propuestas_comerciales%20%28simulado%29.xlsx" download="5 - Seguimiento_propuestas_comerciales (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">5 - Seguimiento_propuestas_comerciales (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+<li style="border-bottom: 1px solid #f0fdfa">
+<a class="fila-archivo" href="recursos/ficha-5/6%20-%20Planning_obra_B%20%28simulado%29.xlsx" download="6 - Planning_obra_B (simulado).xlsx" style="border-radius: 6px; display: flex; align-items: center; gap: 12px; padding: 8px 4px; text-decoration: none; color: #212121; min-height: 44px; box-sizing: border-box">
+<span style="flex: none; width: 46px; text-align: center; font-size: 11px; font-weight: 700; color: #1c5572; background: #ccfbf1; border-radius: 4px; padding: 3px 0">XLSX</span>
+<span style="display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto">
+
+<span style="font-size: 14px; overflow-wrap: anywhere">6 - Planning_obra_B (simulado).xlsx</span>
+</span>
+<span style="flex: none; font-size: 13px; color: #333333">6 KB</span>
+<span style="flex: none; color: #117e8e; display: flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg></span>
+</a>
+</li>
+</ul>
+</details>
+
+</article>
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 0 80px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #117e8e">Para después de clase</span>
+<h2 style="margin: 0; font-size: 32px; font-weight: 700; color: #333333; letter-spacing: -0.3px">Material de repaso</h2>
+<p style="margin: 0; font-size: 16px; font-weight: 300">Guías rápidas para consultar en tu puesto de trabajo.</p>
+</div>
+
+<div style="background: #ffffff; border: 1px solid #e2efeb; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700; color: #1c5572">Método DAPEN+R</h3>
+<span style="font-size: 14px; font-weight: 300">Siete componentes, uno por línea: el Rol abre el prompt y la Revisión lo cierra.</span>
+</div>
+<div class="dapen">
+<div style="background: #1c5572; border-radius: 10px; padding: 18px 14px; display: flex; flex-direction: column; gap: 6px; color: #ffffff"><span style="font-size: 32px; font-weight: 700; color: #ccfbf1; line-height: 1">R</span><strong style="font-size: 15px">Rol</strong><span style="font-size: 13px; line-height: 1.45; font-weight: 300">¿Qué papel debe adoptar Claude?</span></div>
+<div style="background: #f0fdfa; border-radius: 10px; padding: 18px 14px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 32px; font-weight: 700; color: #117e8e; line-height: 1">D</span><strong style="font-size: 15px; color: #333333">Datos</strong><span style="font-size: 13px; line-height: 1.45; font-weight: 300">¿Con qué información trabaja?</span></div>
+<div style="background: #f0fdfa; border-radius: 10px; padding: 18px 14px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 32px; font-weight: 700; color: #117e8e; line-height: 1">A</span><strong style="font-size: 15px; color: #333333">Acción</strong><span style="font-size: 13px; line-height: 1.45; font-weight: 300">¿Qué tiene que hacer exactamente?</span></div>
+<div style="background: #f0fdfa; border-radius: 10px; padding: 18px 14px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 32px; font-weight: 700; color: #117e8e; line-height: 1">P</span><strong style="font-size: 15px; color: #333333">Público</strong><span style="font-size: 13px; line-height: 1.45; font-weight: 300">¿A quién va dirigido el resultado?</span></div>
+<div style="background: #f0fdfa; border-radius: 10px; padding: 18px 14px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 32px; font-weight: 700; color: #117e8e; line-height: 1">E</span><strong style="font-size: 15px; color: #333333">Estilo</strong><span style="font-size: 13px; line-height: 1.45; font-weight: 300">¿Con qué tono y formato?</span></div>
+<div style="background: #f0fdfa; border-radius: 10px; padding: 18px 14px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 32px; font-weight: 700; color: #117e8e; line-height: 1">N</span><strong style="font-size: 15px; color: #333333">Negación</strong><span style="font-size: 13px; line-height: 1.45; font-weight: 300">¿Qué debe evitar?</span></div>
+<div style="background: #1c5572; border-radius: 10px; padding: 18px 14px; display: flex; flex-direction: column; gap: 6px; color: #ffffff"><span style="font-size: 32px; font-weight: 700; color: #ccfbf1; line-height: 1">+R</span><strong style="font-size: 15px">Revisión</strong><span style="font-size: 13px; line-height: 1.45; font-weight: 300">¿Qué debe comprobar antes de entregarlo?</span></div>
+</div>
+</div>
+
+<div class="repaso">
+<div style="background: #ffffff; border: 1px solid #e2efeb; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 18px; font-weight: 700; color: #1c5572">Cuatro métodos, de menos a más</h3>
+<ol style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.7; font-weight: 300">
+<li><strong style="font-weight: 600">Rol:</strong> el más rápido. «Actúa como [puesto] con experiencia en [especialidad]…»</li>
+<li><strong style="font-weight: 600">DAPEN+R:</strong> el completo, en siete líneas.</li>
+<li><strong style="font-weight: 600">Entrevista:</strong> «Antes de responder, hazme las preguntas necesarias».</li>
+<li><strong style="font-weight: 600">Prompt parametrizado:</strong> una plantilla con campos como {OBRA} o {FECHA}.</li>
+</ol>
+</div>
+<div style="background: #ffffff; border: 1px solid #e2efeb; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 18px; font-weight: 700; color: #1c5572">Los siete apartados de un buen perfil</h3>
+<ul style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.7; font-weight: 300">
+<li>Quién soy</li><li>Uso Claude para</li><li>Prefiero respuestas</li><li>Forma de trabajar</li><li>Estilo de comunicación</li><li>Evitar siempre</li><li>Formato de las respuestas</li>
+</ul>
+<span style="font-size: 13px; color: #333333">Se guardan en Configuración ▸ General.</span>
+</div>
+<div style="background: #ffffff; border: 1px solid #e2efeb; border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 18px; font-weight: 700; color: #1c5572">Cowork en cinco pasos</h3>
+<ol style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.7; font-weight: 300">
+<li>Abre la aplicación de escritorio de Claude y entra en Cowork.</li>
+<li>Elige tu copia de la carpeta de práctica.</li>
+<li>Selecciona el modo «Manual».</li>
+<li>Envía el prompt, revisa el plan y autoriza cada paso.</li>
+<li>Comprueba el resultado en tu carpeta.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+
+<footer style="background: #163f55; color: #ffffff; padding: 48px 0 24px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 32px">
+<div class="footer-grid">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="align-self: flex-start; background: #ffffff; border-radius: 10px; padding: 8px 14px"><img src="img/logo_dapen.png" alt="DAPEN Centro Estudios" style="height: 52px; width: auto; display: block"></div>
+<p style="margin: 6px 0 0; font-size: 14px; line-height: 1.6; font-weight: 300; color: #e2efeb">Formación en inteligencia artificial, automatización y herramientas digitales para empresas.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #ccfbf1">Contacto</span>
+<a href="https://www.dapencentroestudios.com" target="_blank" rel="noopener" style="color: #ffffff; text-decoration: none">www.dapencentroestudios.com</a>
+<a href="mailto:daniel@grupodapen.com" style="color: #ffffff; text-decoration: none">daniel@grupodapen.com</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #ccfbf1">Aviso</span>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; font-weight: 300; color: #e2efeb">Todos los datos y documentos de los archivos de prácticas son simulados o inventados para practicar y no contienen datos reales de clientes.</p>
+</div>
+</div>
+<div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 18px; font-size: 13px; color: #e2efeb">Curso de automatización de tareas con Claude aplicado a la gestión de obras · Construcción Tecnológica y Casas 2.000 S.L.</div>
+</div>
+</footer>
+</div>
+</body>
+</html>
